@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import Search from "../components/global/Search"
 import Category from "../components/global/Category"
 import ProductCard from "../components/global/ProductCard"
-import thingsApart from "../assets/things-fall-apart.jpg"
+import { ToastContainer, toast } from 'react-toastify';
+import thingsApart from "../assets/cookies.svg"
 
 
 const ProductsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-
   const categories = ["Electronics", "Fashion", "Books", "Home"];
   const allProducts = [
     {
@@ -95,16 +95,16 @@ const ProductsPage: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredProducts.map((product) => (
-          <Link to={`/product/${product.id}`} key={product.id}>
-            <ProductCard
-              image={product.image}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              onAddToCart={() => alert(`Added ${product.name} to cart`)}
-            />
-          </Link>
+      {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            productId={product.id}
+            image={product.image}
+            name={product.name}
+            description={product.description}
+            price={product.price}
+            onAddToCart={() => toast.success(`${product.name} added successfully to cart`)}
+          />
         ))}
       </div>
     </div>

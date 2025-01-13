@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ProductCard from "../components/global/ProductCard"
-import thingsApart from "../assets/things-fall-apart.jpg"
+import thingsApart from "../assets/cookies.svg"
+import ProductShowcase from "../components/global/ProductShowcase";
 
 
 const ProductDetail: React.FC = () => {
@@ -78,14 +79,12 @@ const ProductDetail: React.FC = () => {
   return (
     <div>
       <div className="container-fluid mx-6 p-4">
-        <h1 className="text-2xl font-bold">{product.name}</h1>
-        <img src={product.image} alt={product.name} className="w-64 h-64 object-cover my-4" />
-        <p>{product.description}</p>
-        <p className="text-lg font-semibold mt-2">Price: ${product.price}</p>
+        
+        <ProductShowcase />
       </div>
       <div className="py-4 bg-faintPink">
-        <div className="container-fluid mx-6 p-4">
-        <h3 className="text-center font-semibold text-xl sm:text-2xl">Related Products</h3>
+        <div className="container-fluid mx-6 ">
+        <h3 className="text-center font-medium text-xl text-black sm:text-2xl my-8">Related Products</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {allProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
@@ -94,6 +93,7 @@ const ProductDetail: React.FC = () => {
               name={product.name}
               description={product.description}
               price={product.price}
+              productId={product.id}
               onAddToCart={() => alert(`Added ${product.name} to cart`)}
             />
           </Link>

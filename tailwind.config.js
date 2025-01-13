@@ -10,6 +10,7 @@ export default {
         customGray: '#EDEDED',
         customGrayBold: '#A3A3A3',
         customGrayFaint: '#838383',
+        grayDark: "#F9F9F9",
         bloodRed: '#FF1A71',
         faintPink: '#FFEAF2',
       },
