@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Logo from './Logo';
 import Cart from './Cart';
 import cartIcon from '../../assets/cart-icon.svg'
@@ -7,7 +8,7 @@ import logoIcon from  '../../assets/logo-milky.svg'
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex items-center justify-between px-4 py-3 bg-white shadow-md">
+    <nav className="container-fluid mx-6 flex items-center justify-between px-4 py-2 bg-white">
       <div className="flex-shrink-0">
         <Logo
           src={logoIcon}
@@ -16,18 +17,18 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="flex items-center space-x-6">
-        <a
-          href="#home"
-          className="text-gray-800 text-sm sm:text-base hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+        <Link
+          to="/"
+          className="text-sm sm:text-base hover:font-semibold"
         >
           HOME
-        </a>
-        <a
-          href="#my-order"
-          className="text-gray-800 text-sm sm:text-base hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
+        </Link>
+        <Link
+          to="/orders"
+          className="text-sm sm:text-base hover:font-semibold"
         >
           MY ORDER
-        </a>
+        </Link>
 
         <Cart
           itemCount={5}

@@ -19,7 +19,7 @@ const Cart: React.FC<CartProps> = ({
   return (
     <div
       className={classNames(
-        'flex items-center space-x-2 cursor-pointer',
+        'flex space-x-1 cursor-pointer hover:font-semibold',
         className
       )}
       onClick={onClick}
@@ -27,13 +27,14 @@ const Cart: React.FC<CartProps> = ({
       <img
         src={cartIcon}
         alt={altText}
-        className="h-6 w-6 object-contain"
+        className="h-10 w-10 object-contain"
       />
-
-      <span className="text-lg font-medium text-gray-800">Cart</span>
-      <span className="bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-        {itemCount}
-      </span>
+      <div className='flex flex-col hover:font-semibold'>
+        <span className="text-sm font-medium">Cart</span>
+        <span className="text-xs font-medium">
+          {itemCount} items
+        </span>
+      </div>
     </div>
   );
 };

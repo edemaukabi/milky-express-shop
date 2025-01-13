@@ -8,19 +8,14 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ src, alt = "Logo", text, className }) => {
+const Logo: React.FC<LogoProps> = ({ src, alt = "Milky Express Logo", className }) => {
   return (
-    <div className={classNames('flex items-center space-x-2', className)}>
+    <div className={classNames('flex items-center', className)}>
       <img 
         src={src} 
         alt={alt} 
-        className="h-8 w-auto sm:h-10 lg:h-12" 
+        className="h-16 w-auto sm:h-18 lg:h-20 object-contain cursor-pointer" 
       />
-      {text && (
-        <span className="hidden text-lg font-bold text-gray-800 sm:inline lg:text-xl">
-          {text}
-        </span>
-      )}
     </div>
   );
 };
