@@ -3,7 +3,7 @@ import { IoIosArrowBack } from "@react-icons/all-files/io/IoIosArrowBack";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/AppContext"; // Import the cart context
 import CartItem from "../components/cart/CartItem";
-import Checkout from "../components/cart/Checkout";
+// import Checkout from "../components/cart/Checkout";
 import { toast } from "react-toastify";
 
 const CartPage: React.FC = () => {

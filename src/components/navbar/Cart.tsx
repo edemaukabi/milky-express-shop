@@ -15,7 +15,7 @@ const Cart: React.FC<CartProps> = ({
   onClick,
   className,
 }) => {
-  const { cart, totalItems } = useCart();
+  const { totalItems } = useCart();
 
   return (
     <div
