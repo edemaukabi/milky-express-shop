@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Navbar />
       </header>
 
-      <main className="flex-grow py-6 mt-[4rem] pt-[5rem]">
+      <main className="flex-grow py-6 mt-[4rem] pt-[3rem] sm:pt-[4rem]">
         {children}
       </main>
     </div>

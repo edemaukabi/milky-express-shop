@@ -60,14 +60,14 @@ const ProductsPage: React.FC = () => {
 
   return (
     <div className="container-fluid mx-6 p-4">
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
-        <div className="w-5/6 sm:w-1/3">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+        <div className="w-full sm:w-1/3">
           <Search
             placeholder="Product Search..."
             onSearch={(term) => setSearchTerm(term)}
           />
         </div>
-        <div className="w-5/6 sm:w-1/3">
+        <div className="w-full sm:w-1/3">
           {categoriesLoading ? (
             <p>Loading...</p>
           ) : (
@@ -91,9 +91,6 @@ const ProductsPage: React.FC = () => {
               name={product.name}
               description={product.description}
               price={product.price}
-              // onAddToCart={() =>
-              //   toast.success(`${product.name} added successfully to cart`)
-              // }
             />
           ))}
         </div>
