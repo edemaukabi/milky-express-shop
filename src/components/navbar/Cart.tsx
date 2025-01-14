@@ -1,8 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
+import { useCart } from "../../context/AppContext";
 
 interface CartProps {
-  itemCount: number;
   cartIcon: string;
   altText?: string;
   onClick?: () => void;
@@ -10,16 +10,17 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({
-  itemCount,
   cartIcon,
-  altText = 'Cart Icon',
+  altText = "Cart Icon",
   onClick,
   className,
 }) => {
+  const { cart, totalItems } = useCart();
+
   return (
     <div
       className={classNames(
-        'flex space-x-1 cursor-pointer hover:font-semibold',
+        "flex space-x-1 cursor-pointer hover:font-semibold",
         className
       )}
       onClick={onClick}
@@ -29,10 +30,10 @@ const Cart: React.FC<CartProps> = ({
         alt={altText}
         className="h-10 w-10 object-contain"
       />
-      <div className='flex flex-col hover:font-semibold'>
+      <div className="flex flex-col hover:font-semibold">
         <span className="text-sm font-medium">Cart</span>
         <span className="text-xs font-medium">
-          {itemCount} items
+          {totalItems} {totalItems === 1 ? "item" : "items"}
         </span>
       </div>
     </div>
