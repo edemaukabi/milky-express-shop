@@ -60,7 +60,7 @@ The app uses the following routes to navigate between pages:
 
 - **Orders Page**: To be fully implemented and restricted to logged-in users.
 - **Authentication**: Users must log in or sign up before viewing their orders.
-- **Checkout**: Finalizing the checkout form and payment system.
+- **Checkout**: Could integrate a payment system like stripe.
 
 ## Accomplishments
 
@@ -68,7 +68,9 @@ The app uses the following routes to navigate between pages:
 - Implemented a **responsive layout** and **Navbar**.
 - Created interactive **Search** and **Category** components for product filtering.
 - Ensured that the application is accessible and responsive across all screen sizes.
-
+- Create a mock login and authentication since I am not connected to any database.
+- Take an order to completion. 
+- Protected order complete page and conditionally render the Login or checkout depending if a user is authenticated.
 ## Technologies Used
 
 - **React**: Chosen for its fast client-side rendering and high user interactivity.
