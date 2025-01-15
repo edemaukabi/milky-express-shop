@@ -11,6 +11,8 @@ export default {
         customGrayBold: '#A3A3A3',
         customGrayFaint: '#838383',
         grayDark: "#F9F9F9",
+        mediumDarkDray: "#BCBCBC",
+        lightGray: "#949494",
         bloodRed: '#FF1A71',
         faintPink: '#FFEAF2',
       },

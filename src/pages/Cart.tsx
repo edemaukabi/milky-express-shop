@@ -3,11 +3,14 @@ import { IoIosArrowBack } from "@react-icons/all-files/io/IoIosArrowBack";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/AppContext";
 import CartItem from "../components/cart/CartItem";
-// import Checkout from "../components/cart/Checkout";
+import Checkout from "../components/cart/Checkout";
+import LoginPrompt from "../components/auth/LoginPrompt";
 
 
 const CartPage: React.FC = () => {
   const { cart } = useCart();
+  const isLoggedIn = localStorage.getItem('is_authenticated') === 'true';
+
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -42,15 +45,18 @@ const CartPage: React.FC = () => {
         </div>
       </div>
 
-      {/* {cart.length > 0 && (
-        <div className="bg-white shadow-lg rounded-lg p-6">
+       { isLoggedIn &&  cart.length > 0 ? (
+        <div className="sm:mt-[3rem] rounded-lg p-6">
           <Checkout
             subTotal={cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}
             shipping={10}
             discount={5}
           />
-        </div>
-      )} */}
+        </div>)
+      :
+      <div className="sm:mt-[3rem]">
+        <LoginPrompt />
+      </div> }
     </div>
   );
 };
