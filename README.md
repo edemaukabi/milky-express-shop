@@ -61,7 +61,6 @@ The app uses the following routes to navigate between pages:
 - **Orders Page**: To be fully implemented and restricted to logged-in users.
 - **Authentication**: Users must log in or sign up before viewing their orders.
 - **Checkout**: Finalizing the checkout form and payment system.
-- **Bug Fixes**: Working on fixing minor bugs in cart quantity display and improving overall performance.
 
 ## Accomplishments
 
