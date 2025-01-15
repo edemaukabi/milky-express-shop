@@ -44,11 +44,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const updateCartItemQuantity = (id: number, quantity: number) => {
     if (quantity < 1) return;
-    setCart((prevCart) =>
-      prevCart.map((item) =>
+    setCart((prevCart) =>{
+      return prevCart.map((item) =>
         item.id === id ? { ...item, quantity } : item
       )
-    );
+  });
   };
   
 

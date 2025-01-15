@@ -1,25 +1,14 @@
 import React from "react";
 import { IoIosArrowBack } from "@react-icons/all-files/io/IoIosArrowBack";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/AppContext"; // Import the cart context
+import { useCart } from "../context/AppContext";
 import CartItem from "../components/cart/CartItem";
 // import Checkout from "../components/cart/Checkout";
-import { toast } from "react-toastify";
+
 
 const CartPage: React.FC = () => {
-  const { cart, removeFromCart, updateCartItemQuantity } = useCart();
+  const { cart } = useCart();
 
-  const handleDelete = (id: number) => {
-    removeFromCart(id);
-    toast.success("Item removed from cart.");
-  };
-
-  const handleUpdateQuantity = (id: number, quantity: number) => {
-    updateCartItemQuantity(id, quantity);
-    toast.success("Cart updated successfully.");
-  };
-
-  // Calculate the total quantity of items in the cart
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -47,10 +36,6 @@ const CartPage: React.FC = () => {
               price={item.price}
               quantity={item.quantity}
               imageUrl={item.image}
-              onDelete={() => handleDelete(item.id)}
-              onUpdateQuantity={(newQuantity) =>
-                handleUpdateQuantity(item.id, newQuantity)
-              }
               id={item.id}
             />
           ))}

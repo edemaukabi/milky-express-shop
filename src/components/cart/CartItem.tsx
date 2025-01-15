@@ -1,5 +1,7 @@
 import React from "react";
 import { RiDeleteBin6Line } from "@react-icons/all-files/ri/RiDeleteBin6Line";
+import { useCart } from "../../context/AppContext";
+import { toast } from "react-toastify";
 
 interface CartItemProps {
   id: number;
@@ -7,8 +9,6 @@ interface CartItemProps {
   price: number;
   quantity: number;
   imageUrl: string;
-  onDelete: (id: number) => void;
-  onUpdateQuantity: (id: number, quantity: number) => void;
 }
 
 const CartItem: React.FC<CartItemProps> = ({
@@ -17,18 +17,27 @@ const CartItem: React.FC<CartItemProps> = ({
   price,
   quantity,
   imageUrl,
-  onDelete,
-  onUpdateQuantity,
 }) => {
+
+  const { removeFromCart, updateCartItemQuantity } = useCart();
+
   const handleIncrement = () => {
-    onUpdateQuantity(id, quantity + 1);
+    updateCartItemQuantity(id, quantity + 1);
   };
 
   const handleDecrement = () => {
     if (quantity > 1) {
-      onUpdateQuantity(id, quantity - 1);
+      updateCartItemQuantity(id, quantity - 1);
+    }
+    else {
+      handleDelete(id)
     }
   };
+
+  const handleDelete = (id: number) => {
+      removeFromCart(id);
+      toast.success("Item removed from cart.");
+    };
 
   return (
     <div className="flex items-center justify-between space-x-4 p-4 bg-white rounded-lg shadow-md mb-4">
@@ -66,7 +75,7 @@ const CartItem: React.FC<CartItemProps> = ({
       </div>
 
       <button
-        onClick={() => onDelete(id)}
+        onClick={() => handleDelete(id)}
         className="text-red-500 hover:text-red-700"
       >
         <RiDeleteBin6Line size={20} className="text-bloodRed"/>
